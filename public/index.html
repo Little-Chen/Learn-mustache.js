@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple mustache</title>
+</head>
+<body>
+    <script src="/dist/umd/vue.js"></script>
+    <!-- 正则实现简易的模板替换 -->
+    <!-- <script>
+        var render = function (template,data) {
+            return template.replace(/\{\{(\w+)\}\}/g,function (a,$1,c){
+                console.log(a,$1,c); // $1为捕获的内容
+                return data[$1]
+            })
+        }
+        var template = `
+            <div>{{name}}先生</div>
+        `
+        var data = {
+            name: '王',
+        }
+        var str = render(template,data)
+        console.log(str);
+    </script> -->
+    
+    <!-- 简版模板引擎实现测试 -->
+    <script>
+        var template = `
+        <div>
+            我买了一些东西，有：
+            <ul>
+                {{#thing}}
+                <li>
+                    <h3>{{type}}</h3>
+                    具体有：
+                    <ol>
+                        {{#list}}
+                            <li>{{.}}</li>
+                        {{/list}}
+                    </ol>
+                </li>
+                {{/thing}}
+            </ul>
+            感觉好{{mood}}啊！
+        </div>`
+        // var template = `我买了一些{{thing}},感觉好{{mood}}啊！`
+        var data = {
+            thing:[
+                {
+                    type: '水果',
+                    list: ['苹果','香蕉']
+                },
+                {
+                    type: '蔬菜',
+                    list: ['黄瓜','茄子']
+                }
+            ],
+            mood: '开心'
+        }
+        var res = Mustache.render(template, data)
+        console.log(res);
+        var DomRoot = document.getElementsByTagName('body')[0]
+        DomRoot.innerHTML = res
+    </script>
+</body>
+</html> 

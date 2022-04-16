@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul id="wrap">测试几种常规的模板引擎实现方案：</ul>
+    </div>
+    <script>
+        var arr= [
+            {
+                name: 'A'
+            },
+            {
+                name: 'B'
+            },
+            {
+                name: 'C'
+            }
+        ]
+        
+        var wrap = document.getElementById('wrap')
+        // 1. dom方法渲染数据
+        arr.forEach((item,index)=>{
+            var oli = document.createElement("li");
+            oli.innerText = item.name
+            wrap.appendChild(oli)
+        })
+
+        // 2. 数组join方法
+        for(let i =0 ; i < arr.length; i++) {
+            wrap.innerHTML += [
+                '<li>',
+                '   <div class="hd">' + arr[i].name +'的  基本信息</div>',
+                '</li>'
+            ].join('')
+        }
+
+        // 3. es6 反引号模板字符串(数组join的原生升级实现)
+        for(let i =0 ; i < arr.length; i++) {
+            wrap.innerHTML += `
+            <li>
+                <div class="hd">${arr[i].name}的基本信息ya</div>
+            </li>
+            `
+        }
+        // 4. mustache.js 模板引擎（更好的解决了复杂模板的嵌套和循环问题）具体见本目录demo项目
+         
+    </script>
+</body>
+</html>
