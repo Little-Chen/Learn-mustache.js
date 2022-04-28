@@ -2,7 +2,7 @@
  * 递归找到数据源中对应属性值
  * @param {数据对象} dataObj 
  * @param {变量名} keyName 
- * @returns 
+ * @returns 对应属性值
  */
 export default function lookup (dataObj, keyName) {
 

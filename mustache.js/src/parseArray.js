@@ -14,7 +14,7 @@ export default function parseArray (tokenArr, dataObj) {
         // 遍历的次数，此时应该由数据源数组的项数决定
         for (let i = 0; i < dataObj.length; i++) {
             const data = dataObj[i];
-            // 支持{{.}}渲染数组简单项，需在对象上扩展一个'.'属性，值等于本身
+            // 要支持{{.}}渲染数组简单项，需在对象上额外扩展一个'.'属性，其值等于本身
             resStr += renderTemplate(tokenArr, {
                 ...data,
                 '.': data

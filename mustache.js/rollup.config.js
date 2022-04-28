@@ -5,7 +5,7 @@ import serve from 'rollup-plugin-serve'
 export default {
     input:'src/index.js',
     output:{
-        file: 'dist/umd/vue.js',
+        file: 'dist/umd/Mustache.js',
         name: 'Mustache',
         format: 'umd',
         sourcemap: true

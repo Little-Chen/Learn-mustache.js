@@ -1,8 +1,13 @@
+/**
+ * 将token按照dom层级转化为嵌套结构
+ * @param {一维tokens集合} tokens 
+ * @returns 嵌套tokens
+ */
 export default function NestTokens (tokens) {
 
     var sections = [] // 作为栈队，记录每层标识符的出入
     var nestTokens,collector;
-    nestTokens = collector = [] // 收集每层的内容，并将改变同步到nestTOkens中
+    nestTokens = collector = [] // 收集每层的内容，并将改变同步到nestTokens中
 
     for (let i = 0; i < tokens.length; i++) {
         const token = tokens[i];
