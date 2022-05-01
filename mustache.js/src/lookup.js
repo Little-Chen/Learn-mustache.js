@@ -1,5 +1,5 @@
 /**
- * 递归找到数据源中对应属性值
+ * 循环剥洋葱法找到数据源中对应属性值
  * @param {数据对象} dataObj 
  * @param {变量名} keyName 
  * @returns 对应属性值

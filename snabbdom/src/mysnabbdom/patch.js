@@ -1,5 +1,9 @@
 import createElement from "./createElement"
 import vnode from "./vnode"
+import { isNotVnode, sameVnode } from "./utils"
+import patchVnode from "./patchVnode"
+
+// 目前逻辑不支持同时存在text和chidren的情况
 
 export default function (oldVnode, newVnode) {
     // 判断传入的第一个参数是否为vnode
@@ -10,18 +14,7 @@ export default function (oldVnode, newVnode) {
     // todo 判断oldVnode和newVnode是不是同一个虚拟节点
     if(sameVnode(oldVnode, newVnode)){
         // 新旧进行对比，更新变化
-
-        // ① 判断新旧节点是否是同一个对象
-        if(oldVnode === newVnode) return
-        if (newVnode.text !== '' || newVnode.text !== undefined) {
-            // 判断新节点是否为文本节点
-
-
-        } else {
-            // 新节点不是文本节点
-        }
-        
-
+        patchVnode(oldVnode, newVnode)
     } else {
         // 创建新的节点，并插入dom树
         let domNode = createElement(newVnode)
@@ -35,21 +28,4 @@ export default function (oldVnode, newVnode) {
         parentNode.removeChild(oldVnode.elm)
 
     }
-}
-
-
-
-/**
- * 
- * 工具函数
- */
-
-function isNotVnode (node) {
-    return node.sel == '' || node.sel == undefined
-}
-
-function sameVnode (oldVnode, newVnode) {
-    const { sel:oldSel, key: oldKey } = oldVnode
-    const { sel:newSel, key: newKey } = newVnode
-    return oldSel === newSel && oldKey ===newKey
 }

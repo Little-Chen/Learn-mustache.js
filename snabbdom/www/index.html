@@ -11,5 +11,14 @@
     <br>
     <div id="container"></div>
     <script src="/xuni/bundle.js"></script>
+    <script>
+
+        var body = document.getElementsByTagName('body')[0]
+        var btn = document.getElementById('btn')
+        var newDom = document.createElement('div')
+        newDom.innerHTML = 'test insert'
+        console.log(btn.nextSibling);
+        body.insertBefore(newDom, btn.nextSibling)
+    </script>
 </body>
 </html>
