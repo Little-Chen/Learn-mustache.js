@@ -8,7 +8,7 @@ export function isNotVnode (node) {
 }
 
 export function sameVnode (oldVnode, newVnode) {
-    const { sel:oldSel, key: oldKey } = oldVnode
-    const { sel:newSel, key: newKey } = newVnode
+    const { sel:oldSel, data: { key: oldKey }} = oldVnode
+    const { sel:newSel, data: { key: newKey }} = newVnode
     return oldSel === newSel && oldKey ===newKey
 }

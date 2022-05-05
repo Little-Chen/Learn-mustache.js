@@ -7,6 +7,6 @@
  * @param {挂载节点} elm 
  * @returns 
  */
-export default function (sel, data, children, text, elm) {
+export default function vnode(sel, data, children, text, elm) {
     return { sel, data, children, text, elm }
 }

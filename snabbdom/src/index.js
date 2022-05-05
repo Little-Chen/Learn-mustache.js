@@ -57,13 +57,18 @@ var vnode3 = h('ul', {}, [
     h('li',{ key: 'A'}, 'li1'),
     h('li',{ key: 'B'}, 'li2'),
     h('li',{ key: 'C'}, 'li3'),
+    h('li',{ key: 'D'}, 'li4'),
 ])
 
 var vnode4 = h('ul', {}, [
-    h('li',{ key: 'A'}, 'li1'),
     h('li',{ key: 'B'}, 'li22222'),
+    h('li',{ key: 'D'}, [
+        h('p',{ key: 'D-1'}, 'p1'),
+        h('p',{ key: 'D-2'}, 'p2'),
+        h('p',{ key: 'D-3'}, 'p3')
+    ]),
+    h('li',{ key: 'A'}, 'li1'),
     h('li',{ key: 'C'}, 'li3'),
-    h('li',{ key: 'D'}, 'li4'),
 ])
 
 const container = document.getElementById('container')

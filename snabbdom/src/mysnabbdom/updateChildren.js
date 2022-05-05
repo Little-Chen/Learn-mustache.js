@@ -68,7 +68,7 @@ export default function updateChildren (pElm, oldCh, newCh) {
         // 新前与旧后 
         else if(sameVnode(newStartVnode, oldEndVnode)){
             console.log('命中新前与旧后');
-            patchVnode(newStartVnode, OldEndVnode)
+            patchVnode(oldEndVnode, newStartVnode)
 
             // 此时需要移动旧后（新前）指向的节点到旧前节点的前面
             pElm.insertBefore(oldEndVnode.elm, oldStartVnode.elm)
@@ -87,10 +87,11 @@ export default function updateChildren (pElm, oldCh, newCh) {
                 oldKeyToIdx = createkeyToIdx(oldCh, oldStartIndex, oldEndIndex)
             }
             // 使用新列表的第一个节点，去旧列表遍历对比
-            idxInOld = oldKeyToIdx[newStartVnode.key]
+            let idxInOld = oldKeyToIdx[newStartVnode.data.key]
 
             // 若旧列表中未命中，则创建一个新节点，插入到旧前节点的前面
             if(!idxInOld){
+                console.log('均未命中时，将此节点插入到旧头节点前面', oldStartVnode.elm)
                 let dom = createElement(newStartVnode)
 
                 pElm.insertBefore(dom, oldStartVnode.elm)
@@ -98,7 +99,7 @@ export default function updateChildren (pElm, oldCh, newCh) {
             // 在旧列表中命中，则将命中的节点移动到旧前节点的前面
             else{ 
                 // todo 进一步比较节点Tag标签
-
+                console.log('遍历旧列表节点匹配命中，则进行节点移动：', oldStartVnode.elm)
                 let elmToMove = oldCh[idxInOld]
                 patchVnode(elmToMove, newStartVnode)
                 pElm.insertBefore(elmToMove.elm, oldStartVnode.elm)
@@ -118,7 +119,8 @@ export default function updateChildren (pElm, oldCh, newCh) {
         removeVnodes(pElm, oldCh, oldStartIndex, oldEndIndex)
     } else {
         // 标杆
-        const before = newCh[newEndIndex+1] == null ? null : newCh[newEndIndex+1].elm
+        const before = newCh[newEndIndex+1] ? newCh[newEndIndex+1].elm : null 
+        // const before = oldCh[newEndIndex+1].elm  
         // 插入newCh的剩余节点到旧前节点的前面
         addVnodes(pElm, before, newCh, newStartIndex, newEndIndex)
     }
@@ -127,7 +129,7 @@ export default function updateChildren (pElm, oldCh, newCh) {
 function createkeyToIdx (arr, start, end) {
     let keys = {}
     for (let i = start; i <= end; i++) {
-        const key = arr[i].key
+        const key = arr[i].data.key
         keys[key] = i
     }
     return keys
@@ -136,15 +138,18 @@ function createkeyToIdx (arr, start, end) {
 function removeVnodes (pElm, oldCh, start, end) {
     for (let i = start; i <= end; i++) {
         if(oldCh[i]){
+            console.log('删除子节点：', oldCh[i].elm)
             pElm.removeChild(oldCh[i].elm)
         }
     }
 }
 
-function addVnodes(pElm, before, newCh, start, end) {
+function addVnodes(pElm, before, arr, start, end) {
     for (let i = start; i <= end; i++) {
-        if(newCh[i]){
-            pElm.insertBefore(createElement(newCh[i]), before)
+        if(arr[i]){
+            // before为null时为尾部插入
+            console.log('插入子节点：', createElement(arr[i]))
+            pElm.insertBefore(createElement(arr[i]), before)
         }
     }
 }
