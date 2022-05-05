@@ -1,6 +1,6 @@
 ## diff算法
 
-![case1](./page/pic/logic-case1.awebp)
+![case1](https://github.com/Little-Chen/Learn-vue-core/raw/main/snabbdom/page/pic/logic-case1.awebp)
 
 以下为各类case下的diff效果测试，可以直接替换index.js内的数据来进行各case下的测试。
 
@@ -23,11 +23,11 @@ var vnode4 = h('ul', {}, [
 ```
 **期望diff结果：**
 
-![case1](./page/pic/output-case1.png)
+![case1](https://github.com/Little-Chen/Learn-vue-core/raw/main/snabbdom/page/pic/output-case1.png)
 
 **日志：**
 
-![case1](./page/pic/console-case1.png)
+![case1](https://github.com/Little-Chen/Learn-vue-core/raw/main/snabbdom/page/pic/console-case1.png)
 
 ### 2.新旧尾节点比较命中
 
@@ -49,11 +49,11 @@ var vnode4 = h('ul', {}, [
 
 **期望diff结果：**
 
-![case2](./page/pic/output-case2.png)
+![case2](https://github.com/Little-Chen/Learn-vue-core/raw/main/snabbdom/page/pic/output-case2.png)
 
 **日志：**
 
-![case2](./page/pic/console-case2.png)
+![case2](https://github.com/Little-Chen/Learn-vue-core/raw/main/snabbdom/page/pic/console-case2.png)
 
 ### 3. 旧头新尾节点比较命中
 
@@ -80,11 +80,11 @@ var vnode4 = h('ul', {}, [
 
 **期望diff结果：**
 
-![case3](./page/pic/output-case3.png)
+![case3](https://github.com/Little-Chen/Learn-vue-core/raw/main/snabbdom/page/pic/output-case3.png)
 
 **日志：**
 
-![case3](./page/pic/console-case3.png)
+![case3](https://github.com/Little-Chen/Learn-vue-core/raw/main/snabbdom/page/pic/console-case3.png)
 
 ### 4. 旧尾新头节点比较命中
 
@@ -110,11 +110,11 @@ var vnode4 = h('ul', {}, [
 ```
 **期望diff结果：**
 
-![case4](./page/pic/output-case4.png)
+![case4](https://github.com/Little-Chen/Learn-vue-core/raw/main/snabbdom/page/pic/output-case4.png)
 
 **日志：**
 
-![case4](./page/pic/console-case4.png)
+![case4](https://github.com/Little-Chen/Learn-vue-core/raw/main/snabbdom/page/pic/console-case4.png)
 
 ### 5. 比较后剩余节点处理
 
@@ -140,11 +140,11 @@ var vnode4 = h('ul', {}, [
 ```
 
 **期望diff结果：**
-![case5](./page/pic/output-case5.png)
+![case5](https://github.com/Little-Chen/Learn-vue-core/raw/main/snabbdom/page/pic/output-case5.png)
 
 **日志：**
 
-![case5](./page/pic/console-case5.png)
+![case5](https://github.com/Little-Chen/Learn-vue-core/raw/main/snabbdom/page/pic/console-case5.png)
 
 (2) 比较后剩余oldVnode的子节点
 
@@ -165,11 +165,11 @@ var vnode4 = h('ul', {}, [
 ```
 **期望diff结果：**
 
-![case6](./page/pic/output-case6.png)
+![case6](https://github.com/Little-Chen/Learn-vue-core/raw/main/snabbdom/page/pic/output-case6.png)
 
 **日志：**
 
-![case6](./page/pic/console-case6.png)
+![case6](https://github.com/Little-Chen/Learn-vue-core/raw/main/snabbdom/page/pic/console-case6.png)
 
 ### 6. 两端比较未命中时处理
 
@@ -196,11 +196,11 @@ var vnode4 = h('ul', {}, [
 
 **期望diff结果：**
 
-![case7](./page/pic/output-case7.png)
+![case7](https://github.com/Little-Chen/Learn-vue-core/raw/main/snabbdom/page/pic/output-case7.png)
 
 **日志：**
 
-![case7](./page/pic/console-case7.png)
+![case7](https://github.com/Little-Chen/Learn-vue-core/raw/main/snabbdom/page/pic/console-case7.png)
 
 
 
