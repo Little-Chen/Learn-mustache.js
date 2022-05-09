@@ -8,3 +8,6 @@ vue框架核心模板，参考（同原理）的js库的核心逻辑实现原理
  
 ## snabbdom
 介绍：js虚拟Dom库。支持vnode渲染、更新到视图，变为真实Dom元素
+
+## reactivity
+介绍： 数据响应式
